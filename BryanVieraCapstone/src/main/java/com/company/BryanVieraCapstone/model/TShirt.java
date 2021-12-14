@@ -15,8 +15,7 @@ public class TShirt {
     public TShirt(){
     }
 
-    public TShirt(int tShirtId, String size, String color, String description, BigDecimal price, int quantity){
-        this.tShirtId = tShirtId;
+    public TShirt(String size, String color, String description, BigDecimal price, int quantity){
         this.size = size;
         this.color = color;
         this.description = description;

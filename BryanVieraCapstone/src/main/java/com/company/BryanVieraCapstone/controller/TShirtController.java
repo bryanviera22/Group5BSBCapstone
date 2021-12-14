@@ -37,7 +37,7 @@ public class TShirtController {
     }
 
     //getALL
-    @RequestMapping(value = "/tshirt", method = RequestMethod.GET)
+    @RequestMapping(value = "/tshirts", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<TShirt> getAllTShirts(){
 
