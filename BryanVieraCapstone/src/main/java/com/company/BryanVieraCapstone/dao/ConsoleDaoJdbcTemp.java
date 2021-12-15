@@ -60,14 +60,12 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
         }
     }
     @Override
-    public Console getConsoleByManufacturer(String manufacturer){
-        try{
-            return jdbcTemplate.queryForObject(SELECT_CONSOLE_BY_MANUFACTURER_SQL, this::mapRowToConsole, manufacturer);
-        }
-        catch (EmptyResultDataAccessException e){
-            return null;
-        }
+    public List<Console> getConsoleByManufacturer(String manufacturer){
+        return jdbcTemplate.query(
+                SELECT_CONSOLE_BY_MANUFACTURER_SQL,
+                this::mapRowToConsole, manufacturer);
     }
+
 
     @Override
     public List<Console> getAllConsole(){

@@ -33,7 +33,13 @@ public class TShirtDaoTest {
     @Test
     public void addGetDeleteTShirt(){
 
-        TShirt tShirt = new TShirt("Large", "Blue", "Race Cars", new BigDecimal("9.99"), 6);
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Large");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("Race Cars");
+        tShirt.setPrice(new BigDecimal("9.99"));
+        tShirt.setQuantity(6);
+
         tShirt = dao.addTShirt(tShirt);
         TShirt fromDao = dao.getTShirt(tShirt.gettShirtId());
         assertEquals(fromDao, tShirt);
@@ -45,10 +51,20 @@ public class TShirtDaoTest {
     @Test
     public void getAllTShirts(){
 
-        TShirt tShirt = new TShirt("Small", "Pink", "Unicorn", new BigDecimal("7.99"), 9);
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Small");
+        tShirt.setColor("Pink");
+        tShirt.setDescription("Unicorn");
+        tShirt.setPrice(new BigDecimal("7.99"));
+        tShirt.setQuantity(9);
         dao.addTShirt(tShirt);
 
-        tShirt = new TShirt("Medium", "Red", "Cool Flames", new BigDecimal("8.99"), 3);
+        tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Red");
+        tShirt.setDescription("Cool Flames");
+        tShirt.setPrice(new BigDecimal("8.99"));
+        tShirt.setQuantity(3);
         dao.addTShirt(tShirt);
 
         List<TShirt> tShirts = dao.getAllTShirts();
@@ -59,21 +75,18 @@ public class TShirtDaoTest {
 
     @Test
     public void updateTShirt(){
-        TShirt tShirt = new TShirt("Medium", "Black", "Famous Rock Band", new BigDecimal("9.99"), 7);
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Black");
+        tShirt.setDescription("Famous Rock Band");
+        tShirt.setPrice(new BigDecimal("9.99"));
+        tShirt.setQuantity(7);
+
         tShirt = dao.addTShirt(tShirt);
         tShirt.setSize("Large");
         dao.updateTShirt(tShirt);
         TShirt fromDao = dao.getTShirt(tShirt.gettShirtId());
         assertEquals(tShirt, fromDao);
     }
-
-
-
-
-
-
-
-
-
 
 }

@@ -1,10 +1,12 @@
 package com.company.BryanVieraCapstone.dao;
 
+import com.company.BryanVieraCapstone.model.Console;
 import com.company.BryanVieraCapstone.model.TShirt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +44,7 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtDao{
     }
 
     @Override
+    @Transactional
     public TShirt addTShirt(TShirt tshirt) {
         jdbcTemplate.update(
                 INSERT_TSHIRT_SQL,
@@ -66,8 +69,8 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtDao{
         catch (EmptyResultDataAccessException e){
             return null;
         }
-
     }
+
 
     @Override
     public List<TShirt> getAllTShirts() {
@@ -85,7 +88,8 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtDao{
                 tShirt.getColor(),
                 tShirt.getDescription(),
                 tShirt.getPrice(),
-                tShirt.getQuantity());
+                tShirt.getQuantity(),
+                tShirt.gettShirtId());
     }
 
     @Override
