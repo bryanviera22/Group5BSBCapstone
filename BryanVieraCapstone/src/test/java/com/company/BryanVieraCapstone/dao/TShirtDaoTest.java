@@ -74,6 +74,54 @@ public class TShirtDaoTest {
     }
 
     @Test
+    public void getTShirtByColor(){
+
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Small");
+        tShirt.setColor("Pink");
+        tShirt.setDescription("Unicorn");
+        tShirt.setPrice(new BigDecimal("7.99"));
+        tShirt.setQuantity(9);
+        dao.addTShirt(tShirt);
+
+        tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Red");
+        tShirt.setDescription("Cool Flames");
+        tShirt.setPrice(new BigDecimal("8.99"));
+        tShirt.setQuantity(3);
+        dao.addTShirt(tShirt);
+
+        List<TShirt> pinkTShirts = dao.getTShirtByColor("Pink");
+        assertEquals(1, pinkTShirts.size());
+
+    }
+
+    @Test
+    public void getTShirtBySize(){
+
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Small");
+        tShirt.setColor("Pink");
+        tShirt.setDescription("Unicorn");
+        tShirt.setPrice(new BigDecimal("7.99"));
+        tShirt.setQuantity(9);
+        dao.addTShirt(tShirt);
+
+        tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Red");
+        tShirt.setDescription("Cool Flames");
+        tShirt.setPrice(new BigDecimal("8.99"));
+        tShirt.setQuantity(3);
+        dao.addTShirt(tShirt);
+
+        List<TShirt> tShirtSize = dao.getTShirtSize("Medium");
+        assertEquals(1, tShirtSize.size());
+
+    }
+
+    @Test
     public void updateTShirt(){
         TShirt tShirt = new TShirt();
         tShirt.setSize("Medium");
