@@ -60,7 +60,7 @@ public class TShirtController {
     }
 
     //getByColor
-    @RequestMapping(value = "/tshirt/{color}", method = RequestMethod.GET) // "/tshirt/color/{color}
+    @RequestMapping(value = "/tshirt/color/{color}", method = RequestMethod.GET) // "/tshirt/color/{color}
     @ResponseStatus(HttpStatus.OK)
     public List<TShirt> getTShirtByColor(@PathVariable String color){
 
@@ -68,7 +68,7 @@ public class TShirtController {
     }
 
     //getBySize
-    @RequestMapping(value = "/tshirt/{size}", method = RequestMethod.GET) // "/tshirt/size/{size}
+    @RequestMapping(value = "/tshirt/size/{size}", method = RequestMethod.GET) // "/tshirt/size/{size}
     @ResponseStatus(HttpStatus.OK)
     public List<TShirt> getTShirtBySize(@PathVariable String size){
 
@@ -76,114 +76,3 @@ public class TShirtController {
     }
 
 }
-
-
-//    //CREATE
-//    @RequestMapping(value = "/tshirt", method = RequestMethod.POST)
-//    @ResponseStatus(value = HttpStatus.CREATED)
-//    public TShirt createTShirt(@RequestBody @Valid TShirt tShirt){
-//
-//        tShirt.settShirtId(idCounter++);
-//        tShirtList.add(tShirt);
-//
-//        return tShirt;
-//    }
-//
-//    //READ BY ID
-//    @RequestMapping(value = "/tshirt/{id}", method = RequestMethod.GET)
-//    @ResponseStatus(value = HttpStatus.OK)
-//    public TShirt getTShirtById(@PathVariable int id){
-//       TShirt foundTShirt = null;
-//
-//       for(TShirt tShirt : tShirtList){
-//           if(tShirt.gettShirtId() == id){
-//               foundTShirt = tShirt;
-//               break;
-//           }
-//       }
-//
-//       return foundTShirt;
-//    }
-//
-//    //READ ALL
-//    @RequestMapping(value= "/tshirts", method = RequestMethod.GET)
-//    @ResponseStatus(value = HttpStatus.OK)
-//    public List<TShirt> getAllTShirts(@RequestParam(required = false) String tshirt){
-//
-//        return tShirtDao.getAllTShirts();
-//
-//        //return service.t....
-////        List<TShirt> returnList = new ArrayList<>();
-////        return returnList;
-//    }
-//
-//
-//    //UPDATE
-//    @RequestMapping(value = "/tshirt/{id}", method = RequestMethod.PUT)
-//    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-//    public void updateTShirtById(@PathVariable int id, @RequestBody TShirt tShirt){
-//        int index =-1;
-//
-//        for(int i = 0; i<tShirtList.size(); i++){
-//            if(tShirtList.get(i).gettShirtId() == id){
-//                index = 1;
-//                break;
-//            }
-//        }
-//        if (index >=0){
-//            tShirtList.set(index, tShirt);
-//        }
-//    }
-//
-//    //DELETE
-//    @RequestMapping(value = "/tshirt/{id}", method = RequestMethod.DELETE)
-//    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-//    public void deleteTShirtById(@PathVariable int id){
-//
-//        int index = -1;
-//
-//        for(int i = 0; i < tShirtList.size(); i++){
-//            if(tShirtList.get(i).gettShirtId() == id){
-//                index = 1;
-//                break;
-//            }
-//
-//        }
-//        if (index >= 0){
-//            tShirtList.remove(index);
-//        }
-//    }
-//
-//    //GET BY COLOR
-//    @RequestMapping(value = "/tshirt/{color}", method = RequestMethod.GET)
-//    @ResponseStatus(value = HttpStatus.OK)
-//    public TShirt getTShirtByColor(@PathVariable String color){
-//
-//        TShirt foundTShirt = null;
-//
-//        for(TShirt tShirt : tShirtList){
-//            if(tShirt.getColor() == color){
-//                foundTShirt = tShirt;
-//                break;
-//            }
-//        }
-//        return foundTShirt;
-//    }
-//
-//    //GET BY SIZE
-//    @RequestMapping(value = "/tshirt/{size}", method = RequestMethod.GET)
-//    @ResponseStatus(value = HttpStatus.OK)
-//    public TShirt getTShirtBySize(@PathVariable String size){
-//
-//        TShirt foundTShirt = null;
-//
-//        for(TShirt tShirt : tShirtList){
-//            if(tShirt.getSize() == size){
-//                foundTShirt = tShirt;
-//                break;
-//            }
-//        }
-//
-//        return foundTShirt;
-//    }
-

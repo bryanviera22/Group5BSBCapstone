@@ -63,18 +63,23 @@ public class ServiceLayer {
     public Console saveConsole(Console console){
         return consoleDao.addConsole(console);
     }
+
     public Console getConsoleByID(int id){
         return consoleDao.getConsole(id);
     }
+
     public List<Console>getAllConsole() {
         return consoleDao.getAllConsole();
     }
+
     public void updateConsole(Console console){
         consoleDao.updateConsole(console);
     }
+
     public void deleteConsole(int id){
         consoleDao.deleteConsole(id);
     }
+
     public List<Console> getConsoleByManufacturer(String manufacturer){
         return consoleDao.getConsoleByManufacturer(manufacturer);
     }
