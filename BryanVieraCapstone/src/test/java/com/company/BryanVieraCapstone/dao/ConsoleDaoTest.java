@@ -92,4 +92,28 @@ public class ConsoleDaoTest {
         assertEquals(console, fromDao);
     }
 
+    @Test
+    public void getConsoleByManufacturer() {
+        Console console = new Console();
+        console.setModel("PS5");
+        console.setManufacturer("Sony");
+        console.setMemory_amount("667.2GB");
+        console.setProcessor("AMD");
+        console.setPrice(new BigDecimal("599.95"));
+        console.setQuantity(28);
+        dao.addConsole(console);
+
+        console = new Console();
+        console.setModel("X-Box S");
+        console.setManufacturer("Microsoft");
+        console.setMemory_amount("700.2GB");
+        console.setProcessor("Intel");
+        console.setPrice(new BigDecimal("299.00"));
+        console.setQuantity(2);
+        dao.addConsole(console);
+
+        List<Console> sonyConsole = dao.getConsoleByManufacturer("Sony");
+        assertEquals(1, sonyConsole.size());
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.company.BryanVieraCapstone.controller;
 
 import com.company.BryanVieraCapstone.model.Game;
-import com.company.BryanVieraCapstone.model.TShirt;
 import com.company.BryanVieraCapstone.service.ServiceLayer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -58,10 +57,7 @@ public class GameControllerTest {
         inputGame.setEsrbRating("Everyone");
         inputGame.setDescription("Hit the road with the definitive version of Mario Kart 8 and play" +
                 "anytime, anywhere! Race your friends or battle them in a revised battle mode" +
-                "on new and returning battle courses. Play locally in up to 4-player multiplayer" +
-                "in 1080p while playing in TV Mode. Every track from the WiFi U version, including" +
-                "DLC, makes a glorious return. Plus, the Inklings appear as all-new guest characters," +
-                "along with returning favorites, such as King Boo, Dry Bones, and Bowser Jr.!");
+                "on new and returning battle courses.");
         inputGame.setPrice(new BigDecimal("39.99"));
         inputGame.setQuantity(37);
     }

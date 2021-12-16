@@ -1,7 +1,6 @@
 package com.company.BryanVieraCapstone.controller;
 
 import com.company.BryanVieraCapstone.model.Game;
-import com.company.BryanVieraCapstone.model.TShirt;
 import com.company.BryanVieraCapstone.service.ServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@RestController
 public class GameController {
 
     @Autowired
@@ -62,4 +62,12 @@ public class GameController {
 
         return serviceLayer.getGameByESRBRating(esrbRating);
     }
+
+    @RequestMapping(value = "/game/title/{title}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Game> getGameByTitle(@PathVariable String title){
+
+        return  serviceLayer.getGameByTitle(title);
+    }
+
 }
