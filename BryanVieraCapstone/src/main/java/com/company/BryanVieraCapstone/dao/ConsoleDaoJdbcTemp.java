@@ -21,16 +21,16 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
             "insert into console(model, manufacturer, memory_amount, processor, price, quantity) values (?,?,?,?,?,?)";
 
     private static final String SELECT_CONSOLE_SQL=
-            "select * from console where console_id= ?";
+            "select * from console where console_id = ?";
 
     private static final String SELECT_CONSOLE_BY_MANUFACTURER_SQL=
-            "select *from console where console_manufacturer=?";
+            "select * from console where manufacturer=?";
 
     private static final String SELECT_ALL_CONSOLE_SQL=
             "select * from console";
 
     private static final String UPDATE_CONSOLE_SQL=
-            "update console set model =?, manufacturer=?, memory_amount=?, processor=?, price=?, quantity=? where console_id=?";
+            "update console set model = ?, manufacturer= ?, memory_amount= ?, processor= ?, price= ?, quantity= ? where console_id= ?";
 
     private static final String DELETE_CONSOLE =
             "delete from console where console_id = ?";
@@ -39,6 +39,7 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
     public ConsoleDaoJdbcTemp(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
+
     @Override
     @Transactional
     public Console addConsole(Console console) {
@@ -48,9 +49,10 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
                 console.getManufacturer(),
                 console.getMemory_amount(),
                 console.getProcessor(),
-                console.getProcessor(),
+                console.getPrice(),
                 console.getQuantity());
-        int id = jdbcTemplate.queryForObject("select LAST_INSERT_ID", Integer.class);
+
+        int id = jdbcTemplate.queryForObject("select LAST_INSERT_ID()", Integer.class);
         console.setId(id);
         return console;
     }
@@ -64,6 +66,7 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
             return null;
         }
     }
+
     @Override
     public List<Console> getConsoleByManufacturer(String manufacturer){
         return jdbcTemplate.query(
@@ -74,7 +77,9 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
 
     @Override
     public List<Console> getAllConsole(){
-        return jdbcTemplate.query(SELECT_ALL_CONSOLE_SQL, this::mapRowToConsole);
+        return jdbcTemplate.query(
+                SELECT_ALL_CONSOLE_SQL,
+                this::mapRowToConsole);
     }
 
     @Override
@@ -86,7 +91,8 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
                 console.getMemory_amount(),
                 console.getProcessor(),
                 console.getPrice(),
-                console.getQuantity());
+                console.getQuantity(),
+                console.getId());
     }
 
     @Override
@@ -103,6 +109,7 @@ public class ConsoleDaoJdbcTemp implements ConsoleDao {
         console.setProcessor(rs.getString("processor"));
         console.setPrice(rs.getBigDecimal("price"));
         console.setQuantity(rs.getInt("quantity"));
+
         return console;
 
     }

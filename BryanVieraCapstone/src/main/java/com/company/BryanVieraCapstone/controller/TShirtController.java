@@ -29,7 +29,7 @@ public class TShirtController {
     }
 
     //getByID
-    @RequestMapping(value = "/tshirt/{id}", method = RequestMethod.GET)     //  /tshirt/id/{id} ??
+    @RequestMapping(value = "/tshirts/{id}", method = RequestMethod.GET)     //  /tshirt/id/{id} ??
     @ResponseStatus(value = HttpStatus.OK)
     public TShirt getTShirtById(@PathVariable int id){
 
@@ -45,8 +45,8 @@ public class TShirtController {
     }
 
     //update
-    @RequestMapping(value = "/tshirt", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/tshirt/{id}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateTShirt(@RequestBody TShirt tShirt){
         serviceLayer.updateTShirt(tShirt);
     }
