@@ -76,10 +76,10 @@ public class ConsoleControllerTest {
         mockMvc.perform(
                 post("/console")
                         .content(inputJson)
-                        .contentType(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON))
 
                         .andDo(print())
-                        .andExpect(status().isCreated()));
+                        .andExpect(status().isCreated());
 
     }
     @Test
@@ -116,9 +116,9 @@ public class ConsoleControllerTest {
         mockMvc.perform(
                 put("/console/2")
                         .content(inputJson)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .andDo(Print())
-                        .andExpect(status().isNoContent()));
+                        .contentType(MediaType.APPLICATION_JSON))
+                        .andDo(print())
+                        .andExpect(status().isNoContent());
 
 
     }

@@ -1,5 +1,6 @@
 //package com.company.BryanVieraCapstone.service;
 //
+//import com.company.BryanVieraCapstone.dao.ConsoleDao;
 //import com.company.BryanVieraCapstone.dao.TShirtDao;
 //import com.company.BryanVieraCapstone.dao.TShirtDaoJdbcTemplateImpl;
 //import com.company.BryanVieraCapstone.model.TShirt;
@@ -8,9 +9,11 @@
 //import org.junit.Test;
 //
 //import java.math.BigDecimal;
+//import java.time.LocalDate;
 //import java.util.ArrayList;
 //import java.util.List;
 //
+//import static org.junit.Assert.assertEquals;
 //import static org.mockito.Mockito.doReturn;
 //import static org.mockito.Mockito.mock;
 //
@@ -18,12 +21,15 @@
 //
 //    ServiceLayer service;
 //    TShirtDao tShirtDao;
+//    ConsoleDao consoleDao;
 //
 //    @Before
 //    public void setUp() throws Exception{
 //        setUpTShirtDaoMock();
+//        setUpConsoleDaoMock();
 //
-//        service = new ServiceLayer(tShirtDao);
+//        service = new ServiceLayer(tShirtDao, consoleDao);
+//
 //    }
 //
 //    @Test
@@ -79,5 +85,48 @@
 //
 //    }
 //
+//    //Console service layer
+//
+//    @Test
+//    public void saveFindConsole(){
+//        ConsoleViewMo
+//    }
+////
+////        AlbumViewModel avm = new AlbumViewModel();
+////
+////        avm.setListPrice((new BigDecimal("14.99")));
+////        avm.setReleaseDate(LocalDate.of(1999,05,15));
+////        avm.setTitle("Greatest Hits");
+////
+////        Artist artist = new Artist();
+////        artist.setInstagram("@RockStar");
+////        artist.setName("The GOAT");
+////        artist.setTwitter("@TheRockStar");
+////
+////        artist = service.saveArtist(artist);
+////        avm.setArtist(artist);
+////
+////        Label label = new Label();
+////        label.setName("Blue Note");
+////        label.setWebsite("www.bluenote.com");
+////        label = service.saveLabel(label);
+////
+////        avm.setLabel(label);
+////
+////        Track track = new Track();
+////        track.setRunTime(180);
+////        track.setTitle("Number 1 Hit");
+////
+////        List<Track>tList= new ArrayList<>();
+////        tList.add(track);
+////
+////        avm.setTracks(tList);
+////        avm = service.saveAlbum(avm);
+////
+////        AlbumViewModel fromService =service.findAlbum(avm.getId());
+////        assertEquals( avm, fromService);
+////
+////
+////    }
 //
 //}
