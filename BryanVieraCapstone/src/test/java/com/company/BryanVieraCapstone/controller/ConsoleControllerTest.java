@@ -59,7 +59,6 @@ public class ConsoleControllerTest {
         inputConsole.setPrice(new BigDecimal("299.00"));
         inputConsole.setQuantity(2);
 
-
     }
 
 }

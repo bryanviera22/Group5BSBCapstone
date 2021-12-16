@@ -1,7 +1,6 @@
 package com.company.BryanVieraCapstone.dao;
 
 import com.company.BryanVieraCapstone.model.Game;
-import com.company.BryanVieraCapstone.model.TShirt;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,11 +38,7 @@ public class GameDaoTest {
         game.setTitle("Life Is Strange: True Colors");
         game.setEsrbRating("Mature");
         game.setDescription("A bold new era of the award-winning Life Is Strange begins, with all-new playable" +
-                "lead character and a thrilling mystery to solve! Alex Chen has ling suppressed her 'curse': the " +
-                "supernatural ability to experience, absorb, and manipulate the string emotions of others, " +
-                "which she sees as blazing, colored auras. When her brother dies in a so-called accident," +
-                "Alex must embrace her volatile power to find the truth--and unciver the dark secrets" +
-                "buried by a small town.");
+                "lead character and a thrilling mystery to solve!");
         game.setPrice(new BigDecimal("34.99"));
         game.setQuantity(16);
 
@@ -55,24 +50,22 @@ public class GameDaoTest {
         assertNull(fromDao);
     }
 
+
+
     @Test
     public void getAllGames() {
 
         Game game = new Game();
         game.setStudio("SEGA Games Co. Ltd");
-        game.setTitle("Demon Slayer - Kimetsu no Yaiba - The Hinokami Chronicles");
+        game.setTitle("Demon Slayer");
         game.setEsrbRating("Teen");
         game.setDescription("It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells" +
-                "charcoal for a living, finds his family slaughtered by a demon. To make matters worse," +
-                "his younger sister Nezuko, the sole survivor, has been transformed into a demon herself." +
-                "Though devastated by this grim reality, Tanjiro resolves to become a 'demon slayer' so that" +
-                "he can turn his sister back into a human and kill the demon that massacred his family. A" +
-                "sorrowful tale of siblings in which the fates of humans and demons intertwine . . . begins now!");
+                "charcoal for a living, finds his family slaughtered by a demon. ");
         game.setPrice(new BigDecimal("39.99"));
         game.setQuantity(3);
         dao.addGame(game);
 
-        Game game = new Game();
+        game = new Game();
         game.setStudio("Activision Blizzard");
         game.setTitle("Call of Duty Vanguard");
         game.setEsrbRating("Mature");
@@ -92,19 +85,16 @@ public class GameDaoTest {
 
         Game game = new Game();
         game.setStudio("SEGA Games Co. Ltd");
-        game.setTitle("Demon Slayer - Kimetsu no Yaiba - The Hinokami Chronicles");
+        game.setTitle("Demon Slayer");
         game.setEsrbRating("Teen");
         game.setDescription("It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells" +
                 "charcoal for a living, finds his family slaughtered by a demon. To make matters worse," +
-                "his younger sister Nezuko, the sole survivor, has been transformed into a demon herself." +
-                "Though devastated by this grim reality, Tanjiro resolves to become a 'demon slayer' so that" +
-                "he can turn his sister back into a human and kill the demon that massacred his family. A" +
-                "sorrowful tale of siblings in which the fates of humans and demons intertwine . . . begins now!");
+                "his younger sister Nezuko, the sole survivor, has been transformed into a demon herself.");
         game.setPrice(new BigDecimal("39.99"));
         game.setQuantity(3);
         dao.addGame(game);
 
-        Game game = new Game();
+        game = new Game();
         game.setStudio("Activision Blizzard");
         game.setTitle("Call of Duty Vanguard");
         game.setEsrbRating("Mature");
@@ -123,19 +113,16 @@ public class GameDaoTest {
 
         Game game = new Game();
         game.setStudio("SEGA Games Co. Ltd");
-        game.setTitle("Demon Slayer - Kimetsu no Yaiba - The Hinokami Chronicles");
+        game.setTitle("Demon Slayer");
         game.setEsrbRating("Teen");
         game.setDescription("It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells" +
                 "charcoal for a living, finds his family slaughtered by a demon. To make matters worse," +
-                "his younger sister Nezuko, the sole survivor, has been transformed into a demon herself." +
-                "Though devastated by this grim reality, Tanjiro resolves to become a 'demon slayer' so that" +
-                "he can turn his sister back into a human and kill the demon that massacred his family. A" +
-                "sorrowful tale of siblings in which the fates of humans and demons intertwine . . . begins now!");
+                "his younger sister Nezuko, the sole survivor, has been transformed into a demon herself.");
         game.setPrice(new BigDecimal("39.99"));
         game.setQuantity(3);
         dao.addGame(game);
 
-        Game game = new Game();
+        game = new Game();
         game.setStudio("Activision Blizzard");
         game.setTitle("Call of Duty Vanguard");
         game.setEsrbRating("Mature");
@@ -150,23 +137,20 @@ public class GameDaoTest {
     }
 
     @Test
-    public void getGameByTitle(){
+    public void getGameByTitle() {
 
         Game game = new Game();
         game.setStudio("SEGA Games Co. Ltd");
-        game.setTitle("Demon Slayer - Kimetsu no Yaiba - The Hinokami Chronicles")
+        game.setTitle("Demon Slayer");
         game.setEsrbRating("Teen");
         game.setDescription("It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells" +
                 "charcoal for a living, finds his family slaughtered by a demon. To make matters worse," +
-                "his younger sister Nezuko, the sole survivor, has been transformed into a demon herself." +
-                "Though devastated by this grim reality, Tanjiro resolves to become a 'demon slayer' so that" +
-                "he can turn his sister back into a human and kill the demon that massacred his family. A" +
-                "sorrowful tale of siblings in which the fates of humans and demons intertwine . . . begins now!");
+                "his younger sister Nezuko, the sole survivor, has been transformed into a demon herself.");
         game.setPrice(new BigDecimal("39.99"));
         game.setQuantity(3);
         dao.addGame(game);
 
-        Game game = new Game();
+        game = new Game();
         game.setStudio("Activision Blizzard");
         game.setTitle("Call of Duty Vanguard");
         game.setEsrbRating("Mature");
@@ -176,7 +160,7 @@ public class GameDaoTest {
         game.setQuantity(21);
         dao.addGame(game);
 
-        List<Game> gameTitle = dao.getGameByTitle("Demon Slayer - Kimetsu no Yaiba - The Hinokami Chronicles");
+        List<Game> gameTitle = dao.getGameByTitle("Demon Slayer");
         assertEquals(1, gameTitle.size());
     }
 
@@ -191,10 +175,9 @@ public class GameDaoTest {
                 "around the globe.");
         game.setPrice(new BigDecimal("39.99"));
         game.setQuantity(46);
-        dao.addGame(game);
 
         game = dao.addGame(game);
-        game.setPrice("69.99");
+        game.setPrice(new BigDecimal("69.99"));
         dao.updateGame(game);
         Game fromDao = dao.getGame(game.getGameId());
         assertEquals(game, fromDao);

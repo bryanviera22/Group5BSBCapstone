@@ -15,12 +15,14 @@ import java.util.List;
 public class ServiceLayer {
     private TShirtDao tShirtDao;
     private ConsoleDao consoleDao;
+    private GameDao gameDao;
 
     @Autowired
-    public ServiceLayer(TShirtDao tShirtDao, ConsoleDao consoleDao){
+    public ServiceLayer(TShirtDao tShirtDao, ConsoleDao consoleDao, GameDao gameDao){
 
         this.tShirtDao = tShirtDao;
         this.consoleDao = consoleDao;
+        this.gameDao = gameDao;
     }
 
     //TShirt API-----------------------------
@@ -86,27 +88,39 @@ public class ServiceLayer {
         return consoleDao.getConsoleByManufacturer(manufacturer);
     }
 
-    //Game API-----------------------------------
+    //GAME API---------------------------------------
+
     public Game saveGame(Game game) {
-        return GameDao.addGame(game);
+        return gameDao.addGame(game);
     }
+
     public Game getGameById(int id) {
-        return GameDao.getGame(id);
+        return gameDao.getGame(id);
     }
+
     public List<Game> getAllGames() {
-        return GameDao.getAllGames();
+        return gameDao.getAllGames();
     }
-    public void updateGame(Game game) { GameDao.updateGame(game);
+
+    public void updateGame(Game game) {
+        gameDao.updateGame(game);
     }
+
     public void deleteGame(int id) {
-        return GameDao.deleteGame(id);
+        gameDao.deleteGame(id);
     }
-    public List<Game> getGameByStudio(String studio) { return GameDao.getGameByStudio(studio);
+
+    public List<Game> getGameByStudio(String studio) {
+        return gameDao.getGameByStudio(studio);
     }
+
     public List<Game> getGameByESRBRating(String esrbRating) {
-        return GameDao.getGameByEsrb(esrbRating);
+        return gameDao.getGameByEsrb(esrbRating);
     }
+
     public List<Game> getGameByTitle(String title) {
-        return GameDao.getGameByTitle(title);
+        return gameDao.getGameByTitle(title);
     }
+
+
 }

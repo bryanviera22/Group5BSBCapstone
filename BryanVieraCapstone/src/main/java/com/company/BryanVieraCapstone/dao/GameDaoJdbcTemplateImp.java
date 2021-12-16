@@ -14,10 +14,10 @@ import java.util.List;
 @Repository
 public class GameDaoJdbcTemplateImp implements GameDao{
 
-    private final JdbcTemplate jdbctemplate;
+    private JdbcTemplate jdbctemplate;
 
     private static final String INSERT_GAME_SQL =
-            "insert into game(game_id, title, esrb_rating, description, price, studio, quantity)";
+            "insert into game(title, esrb_rating, description, price, studio, quantity) values(?, ?, ?, ?, ?, ?)";
 
     private static final String SELECT_GAME_SQL =
             "select * from game where game_id = ?";
@@ -26,7 +26,7 @@ public class GameDaoJdbcTemplateImp implements GameDao{
             "select * from game";
 
     private static final String UPDATE_GAME_SQL =
-            "update game set game_id = ?, title = ?, esrb_rating = ?, description = ?, price = ?, studio = ?, quantity = ?";
+            "update game set title = ?, esrb_rating = ?, description = ?, price = ?, studio = ?, quantity = ? where game_id = ?";
 
     private static final String DELETE_GAME_SQL =
             "delete from game where game_id =?";
@@ -54,11 +54,13 @@ public class GameDaoJdbcTemplateImp implements GameDao{
                 game.getEsrbRating(),
                 game.getDescription(),
                 game.getPrice(),
-                game.getPrice(),
                 game.getStudio(),
                 game.getQuantity());
 
-        int id = jdbctemplate.queryForObject("select last_insert_id()", Integer.class);
+        int id = jdbctemplate.queryForObject("select LAST_INSERT_ID()", Integer.class);
+
+        game.setGameId(id);
+
         return game;
     }
 
@@ -84,16 +86,14 @@ public class GameDaoJdbcTemplateImp implements GameDao{
 
         jdbctemplate.update(
                 UPDATE_GAME_SQL,
-                game.getGameId(),
                 game.getTitle(),
                 game.getEsrbRating(),
                 game.getDescription(),
                 game.getPrice(),
                 game.getStudio(),
-                game.getQuantity()
+                game.getQuantity(),
+                game.getGameId()
         );
-
-
     }
 
     @Override
@@ -111,7 +111,7 @@ public class GameDaoJdbcTemplateImp implements GameDao{
     @Override
     public List<Game> getGameByEsrb(String esrbRating) {
         return jdbctemplate.query(
-                SELECT_GAME_BY_STUDIO_SQL,
+                SELECT_GAME_BY_ESRB_SQL,
                 this::mapRowToGame, esrbRating);
     }
 
